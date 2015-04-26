@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Evaluator email:</strong>
+  <%= @evaluation.evaluator_email %>
+</p>
+
+<p>
+  <strong>Evaluatee email:</strong>
+  <%= @evaluation.evaluatee_email %>
+</p>
+
+<p>
+  <strong>Assignment:</strong>
+  <%= @evaluation.assignment_id %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @evaluation.project %>
+</p>
+
+<p>
+  <strong>Question1:</strong>
+  <%= @evaluation.question1 %>
+</p>
+
+<p>
+  <strong>Question2:</strong>
+  <%= @evaluation.question2 %>
+</p>
+
+<p>
+  <strong>Question3:</strong>
+  <%= @evaluation.question3 %>
+</p>
+
+<p>
+  <strong>Question4:</strong>
+  <%= @evaluation.question4 %>
+</p>
+
+<p>
+  <strong>Question5:</strong>
+  <%= @evaluation.question5 %>
+</p>
+
+<%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |
+<%= link_to 'Back', evaluations_path %>

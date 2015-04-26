@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  evaluator_email: MyString
+  evaluatee_email: MyString
+  assignment_id: 1
+  project: MyString
+  question1: 1
+  question2: 1
+  question3: 1
+  question4: 9.99
+  question5: MyText
+
+two:
+  evaluator_email: MyString
+  evaluatee_email: MyString
+  assignment_id: 1
+  project: MyString
+  question1: 1
+  question2: 1
+  question3: 1
+  question4: 9.99
+  question5: MyText

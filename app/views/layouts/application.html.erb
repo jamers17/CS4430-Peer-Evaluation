@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Peer2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="bar">
+    <div id="welcome">
+        <h1>WMU Peer Evaluation, BETA</h1>
+    </div>
+    <div id="controls">
+        <% if current_member %>
+            Welcome <%= current_member.first %> <%= current_member.last %>!
+            <% if current_member.teacher %>
+                <%= link_to "Students", members_path %>
+                <%= link_to "Teams", teams_path %>
+                <%= link_to "Evaluations", evaluations_path %>
+            <% else %>
+                <%= link_to "New Evaluations", new_evaluation_path %>
+                <%= link_to "Show Evaluations", evaluations_path %>
+            <% end %>
+            <%= link_to "Logout", logout_path %>
+        <% end %>
+    </div>
+</div>
+
+<div id="main">
+    <%= yield %>
+</div>
+
+</body>
+</html>
