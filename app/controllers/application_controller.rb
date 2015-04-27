@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_member, :student_not_in_team?, :student, :team_members, :current_team
+  helper_method :current_member, :student_not_in_team?, :student, :team_members, :current_team, :team_evaluations
 
   private
 
@@ -27,6 +27,11 @@ class ApplicationController < ActionController::Base
   def team_members(current_team)
     @teams = Team.all
     @team = @teams.select{|t| t.name == current_team.name}
+  end
+
+  def team_evaluations(current_member)
+    @evaluations = Evaluation.all
+    @team_evals = @evaluations.select{|e| e.evaluator_email == current_member.email}
   end
 
 end

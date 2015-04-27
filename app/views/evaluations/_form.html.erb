@@ -11,14 +11,14 @@
     </div>
   <% end %>
   
-  <%= f.hidden_field :evaluator_email, :value => current_member.email %>
+  <%= f.hidden_field :evaluator_email, :value => current_member[:email] %>
   <div class="field">
     <%= f.label :evaluatee_email %><br>
     <%= f.collection_select :evaluatee_email, team_members(current_team(current_member)), :email, :email, {:include_blank => "Please select"} %>
   </div>
   <div class="field">
     <%= f.label :assignment_id %><br>
-    <%= f.number_field :assignment_id %>
+    <%= f.collection_select :assignment_id, Assignment.all, :name, :name, {:include_blank => "Please select"} %>
   </div>
   <div class="field">
     <%= f.label :project %><br>

@@ -19,7 +19,9 @@
                 <%= link_to "Students", members_path %>
                 <%= link_to "Teams", teams_path %>
                 <%= link_to "Evaluations", evaluations_path %>
+                <%= link_to "Assignments", assignments_path %>
             <% else %>
+                <%= link_to "Assignments", assignments_path %>
                 <%= link_to "New Evaluations", new_evaluation_path %>
                 <%= link_to "Show Evaluations", evaluations_path %>
             <% end %>

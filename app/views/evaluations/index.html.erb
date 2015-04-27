@@ -19,7 +19,25 @@
   </thead>
 
   <tbody>
+  <% if current_member.teacher %>
     <% @evaluations.each do |evaluation| %>
+    <tr>
+        <td><%= evaluation.evaluator_email %></td>
+        <td><%= evaluation.evaluatee_email %></td>
+        <td><%= evaluation.assignment_id %></td>
+        <td><%= evaluation.project %></td>
+        <td><%= evaluation.question1 %></td>
+        <td><%= evaluation.question2 %></td>
+        <td><%= evaluation.question3 %></td>
+        <td><%= evaluation.question4 %></td>
+        <td><%= evaluation.question5 %></td>
+        <td><%= link_to 'Show', evaluation %></td>
+      </tr>
+    <% end %>
+  <% end %>
+
+  <% if !current_member.teacher %>
+    <% team_evaluations(current_member).each do |evaluation| %>
       <tr>
         <td><%= evaluation.evaluator_email %></td>
         <td><%= evaluation.evaluatee_email %></td>
@@ -35,6 +53,7 @@
         <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+  <% end %>  
   </tbody>
 </table>
 

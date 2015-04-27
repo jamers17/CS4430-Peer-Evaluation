@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426051759) do
+ActiveRecord::Schema.define(version: 20150426234652) do
+
+  create_table "assignments", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "due_date"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "evaluations", force: :cascade do |t|
     t.string   "evaluator_email", limit: 255
