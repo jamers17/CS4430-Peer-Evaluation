@@ -13,36 +13,36 @@
   
   <%= f.hidden_field :evaluator_email, :value => current_member[:email] %>
   <div class="field">
-    <%= f.label :evaluatee_email %><br>
+    <%= f.label :evaluatee_email, "Please select the team member to evaluate" %><br>
     <%= f.collection_select :evaluatee_email, team_members(current_team(current_member)), :email, :email, {:include_blank => "Please select"} %>
   </div>
   <div class="field">
-    <%= f.label :assignment_id %><br>
+    <%= f.label :assignment_id, "Please choose the assignment to be evaluated" %><br>
     <%= f.collection_select :assignment_id, Assignment.all, :name, :name, {:include_blank => "Please select"} %>
   </div>
   <div class="field">
-    <%= f.label :project %><br>
+    <%= f.label :project, "Please enter your team's project URL" %><br>
     <%= f.text_field :project %>
   </div>
   <div class="field">
-    <%= f.label :question1 %><br>
-    <%= f.number_field :question1 %>
+    <%= f.label :question1, "Rate [1-5] this person's expertise at the start of this project<br /> [1:none, 2:some, 3:moderate, 4:good, 5:expert]".html_safe %><br>
+    <%= f.number_field :question1, in: 1..5  %>
   </div>
   <div class="field">
-    <%= f.label :question2 %><br>
-    <%= f.number_field :question2 %>
+    <%= f.label :question2, "How much [1-5] did this person improve in their expertise?<br /> [1:none, 2:little, 3:moderate, 4:good, 5:outstanding]".html_safe %><br>
+    <%= f.number_field :question2, in: 1..5 %>
   </div>
   <div class="field">
-    <%= f.label :question3 %><br>
-    <%= f.number_field :question3 %>
+    <%= f.label :question3, "How well [1-5] did this person interact with the team?<br /> [1:very poorly, 2:poorly, 3:competently, 4:well, 5:very well]".html_safe %><br>
+    <%= f.number_field :question3, in: 1..5 %>
   </div>
   <div class="field">
-    <%= f.label :question4 %><br>
-    <%= f.text_field :question4 %>
+    <%= f.label :question4, "What percentage [0-100%] of the project did this memember contribute? <br /> Note: All ratings for each assignment must total 100.".html_safe %><br>
+    <%= f.number_field :question4, min: 0.00, max: 100.00, step: 0.1 %>
   </div>
   <div class="field">
-    <%= f.label :question5 %><br>
-    <%= f.text_area :question5 %>
+    <%= f.label :question5, "Optional: Comment" %><br>
+    <%= f.text_area :question5, :size => "60%x5%" %>
   </div>
   <div class="actions">
     <%= f.submit %>

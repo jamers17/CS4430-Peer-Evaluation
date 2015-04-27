@@ -1,6 +1,9 @@
 class AssignmentsController < ApplicationController
+
+  skip_before_action :admin_authorize, only: [:index, :show]
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
+  
   # GET /assignments
   # GET /assignments.json
   def index

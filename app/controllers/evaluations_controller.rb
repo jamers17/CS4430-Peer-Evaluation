@@ -1,5 +1,7 @@
 class EvaluationsController < ApplicationController
   before_action :set_evaluation, only: [:show, :edit, :update, :destroy]
+  skip_before_action :admin_authorize
+  skip_before_action :student_authorize, only: [:index, :show]
 
   # GET /evaluations
   # GET /evaluations.json
