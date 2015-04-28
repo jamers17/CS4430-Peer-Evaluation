@@ -1,6 +1,8 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
-  
+  skip_before_action :authorize, only: [:new, :create, :update]
+  skip_before_action :admin_authorize, only: [:new, :create, :update]
+
   # GET /members
   # GET /members.json
   def index

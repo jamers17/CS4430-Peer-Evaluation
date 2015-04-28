@@ -27,14 +27,17 @@ class ApplicationController < ActionController::Base
     end
     
     def team_members(current_team)
-        @teams = Team.all
-        @team = @teams.select{|t| t.name == current_team.name}
+        if defined?(current_team).nil?
+            @teams = Team.all
+            @team = @teams.select{|t| t.name == current_team.name}
+        end
     end
 
     def team_evaluations(current_member)
         @evaluations = Evaluation.all
         @team_evals = @evaluations.select{|e| e.evaluator_email == current_member.email}
     end
+
 
   protected
 
