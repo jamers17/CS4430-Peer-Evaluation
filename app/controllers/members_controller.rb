@@ -30,7 +30,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to members_url, notice: 'Member was successfully created.' }
+        format.html { redirect_to login_url, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
