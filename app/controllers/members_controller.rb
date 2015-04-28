@@ -1,6 +1,8 @@
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
-  
+  skip_before_action :authorize, only: [:new, :create, :update]
+  skip_before_action :admin_authorize, only: [:new, :create, :update]
+
   # GET /members
   # GET /members.json
   def index
@@ -28,7 +30,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to members_url, notice: 'Member was successfully created.' }
+        format.html { redirect_to login_url, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
