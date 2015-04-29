@@ -9,7 +9,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+<div id="matt">
   <tbody>
     <% @teams.each do |team| %>
       <tr>
@@ -21,8 +21,9 @@
       </tr>
     <% end %>
   </tbody>
+</div>
 </table>
 
 <br>
 
-<%= link_to 'New Team', new_team_path %>
+<%= link_to 'Create New Team', new_team_path, class: 'button secondary radius small' %>

@@ -1,4 +1,6 @@
 
+
+
 <h1>Listing Members</h1>
 
 <table>
@@ -13,6 +15,7 @@
   </thead>
 
   <tbody>
+
     <% @members.each do |member| %>
       <tr>
         <td><%= member.email %></td>
@@ -24,6 +27,7 @@
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
