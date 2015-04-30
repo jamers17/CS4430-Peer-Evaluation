@@ -1,7 +1,7 @@
 
 
 
-<h1>Listing Members</h1>
+<h1>Members</h1>
 
 <table>
   <thead>
@@ -37,10 +37,10 @@
     <%= link_to 'New Member', new_member_path %>
 <% end %>
 
-<div>
-<h2>Import a CSV File</h2>
-  <%=form_tag import_products_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
-  <% end %>
-</div>
+<%# <div> %>
+<%# <h2>Import a CSV File</h2> %>
+<%#  <%=form_tag import_products_path, multipart: true do %>
+<%#    <%= file_field_tag :file %>
+<%#    <%= submit_tag "Import CSV" %>
+<%#  <% end %>
+<%# </div> %>

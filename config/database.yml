@@ -28,19 +28,19 @@ development:
   adapter: mysql
   database: peer2_development
   username: root
-  password: mjkmjkmjk
+  password: koala
   host: localhost
 
 test:
   adapter: mysql
   database: peer2_test
   username: root
-  password: mjkmjkmjk
+  password: koala
   host: localhost
 
 production:
   adapter: mysql
   database: peer2_production
   username: root
-  password: mjkmjkmjk
+  password: koala
   host: localhost

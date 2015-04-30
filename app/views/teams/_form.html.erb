@@ -19,7 +19,7 @@
         </div>
         <div class="field">
             <%= f.label :email, "Student Email" %><br />
-            <%= f.collection_select :email, student_not_in_team?, :email, :name_and_email, {:include_blank => "Please select"} %>
+            <%= f.collection_select :email, student, :email, :name_and_email, {:include_blank => "Please select"} %>
         </div> 
         <div class="actions">
             <%= f.submit "Create or Update Team", class: 'button small radius secondary' %>

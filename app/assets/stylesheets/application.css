@@ -11,5 +11,26 @@
     margin-bottom: 30px;
 }
 
+#bar {
+    margin-top: 35px;
+}
 
+table {
+    margin: 0 auto;
+}
 
+#error_explanation{
+    margin: 0 auto;
+}
+
+.field {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.top-bar-section .right .logmsg {
+    margin-top: 4px;
+    margin-right: 1em;
+    color: #fff;
+    font-size: small;
+}

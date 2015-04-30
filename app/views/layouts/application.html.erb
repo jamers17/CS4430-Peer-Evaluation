@@ -14,15 +14,12 @@
   <body>
   <%= render 'shared/navigation' %>
 
-
-  <div id="main">
+  <div id="bar">
     <% if flash[:alert] || flash[:notice] %>
         <p class="alert"><%= flash[:alert] %>
         <p class="notice"><%= flash[:notice] %>
     <% end %>
-    <%= yield %>
-  </div>
-  <div id="bar">
+
     <div id="controls">
       <% if current_member %>
           <% if current_member.teacher %>
@@ -35,8 +32,13 @@
               <%= link_to "New Evaluations", new_evaluation_path, class: 'button success radius small' %>
               <%= link_to "Show Evaluations", evaluations_path, class: 'button success radius small' %>
           <% end %>
+          <hr />
       <% end %>
     </div>
+  </div>
+
+  <div id="main">
+       <%= yield %>
   </div>
   </body>
 

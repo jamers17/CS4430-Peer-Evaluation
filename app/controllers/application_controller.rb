@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authorize 
   before_action :admin_authorize
 
-  helper_method :current_member, :student_not_in_team?, :student, :team_members, :current_team, :team_evaluations
+  helper_method :current_member, :student, :team_members, :current_team, :team_evaluations
 
   private
 
@@ -14,20 +14,17 @@ class ApplicationController < ActionController::Base
     end
 
     def current_team(current_member)
-        @current_team = Team.find_by email: current_member.email
+        @teams = Team.all
+        @team = @teams.find_by(email: current_member.email)
     end
 
-    def student_not_in_team?
-        @students = student
-    end
-  
     def student
         @members = Member.all
         @student = @members.select{|m| m.teacher == false}
     end
     
     def team_members(current_team)
-        if defined?(current_team).nil?
+        if !current_team.nil?
             @teams = Team.all
             @team = @teams.select{|t| t.name == current_team.name}
         end

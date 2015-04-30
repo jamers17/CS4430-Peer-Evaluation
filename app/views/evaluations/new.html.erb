@@ -1,8 +1,8 @@
 <h1>New Peer Evaluation</h1>
 
-<% if defined?(current_team(current_member)).nil? %>
-    <%= render 'form' %>
-<% else %>
+<% if (current_team(current_member)).nil? %>
     <p>You cannot submit an evaluation unless you are a part of a team. Please contact your instructor for further details.</p>
+<% else %>
+    <%= render 'form' %>
 <% end %>
 

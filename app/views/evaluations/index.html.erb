@@ -1,5 +1,9 @@
 
-<h1>Listing Evaluations</h1>
+<% if current_member.teacher %>
+    <h1>All Evaluations</h1>
+<% else %>
+    <h1>Your Evaluations</h1>
+<% end %>
 
 <table>
   <thead>
