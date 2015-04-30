@@ -1,5 +1,6 @@
 body {
-  background-color: #fff;
+  background-image: url("peerWall.png");
+  background-repeat: repeat;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -11,6 +12,13 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px;
 }
+
+#controls{
+  text-align: center;
+  font-size: 50px;
+  margin: auto;
+}
+
 
 pre {
   background-color: #eee;

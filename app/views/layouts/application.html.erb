@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Peer2</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<div id="bar">
-    <div id="welcome">
-        <h1>WMU Peer Evaluation, BETA</h1>
-    </div>
-    <div id="controls">
-        <% if current_member %>
-            Welcome <%= current_member.first %> <%= current_member.last %>!
-            <% if current_member.teacher %>
-                <%= link_to "Students", members_path %>
-                <%= link_to "Teams", teams_path %>
-                <%= link_to "Evaluations", evaluations_path %>
-                <%= link_to "Assignments", assignments_path %>
-            <% else %>
-                <%= link_to "Assignments", assignments_path %>
-                <%= link_to "New Evaluations", new_evaluation_path %>
-                <%= link_to "Show Evaluations", evaluations_path %>
-            <% end %>
-            <%= link_to "Logout", logout_path %>
-        <% end %>
-    </div>
-</div>
+    <title><%= content_for?(:title) ? yield(:title) : "WMU Peer Evaluation" %></title>
 
-<div id="main">
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <%= render 'shared/navigation' %>
+
+
+  <div id="main">
     <% if flash[:alert] || flash[:notice] %>
         <p class="alert"><%= flash[:alert] %>
         <p class="notice"><%= flash[:notice] %>
     <% end %>
     <%= yield %>
-</div>
+  </div>
+  <div id="bar">
+    <div id="controls">
+      <% if current_member %>
+          <% if current_member.teacher %>
+              <%= link_to "Students", members_path, class: 'button success radius small' %>
+              <%= link_to "Teams", teams_path, class: 'button success radius small' %>
+              <%= link_to "Evaluations", evaluations_path, class: 'button success radius small' %>
+              <%= link_to "Assignments", assignments_path, class: 'button success radius small' %>
+          <% else %>
+              <%= link_to "Assignments", assignments_path, class: 'button success radius small' %>
+              <%= link_to "New Evaluations", new_evaluation_path, class: 'button success radius small' %>
+              <%= link_to "Show Evaluations", evaluations_path, class: 'button success radius small' %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+  </body>
 
-</body>
 </html>
