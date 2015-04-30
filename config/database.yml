@@ -28,7 +28,7 @@ development:
   adapter: mysql
   database: peer2_development
   username: root
-  password: koala
+  password: mjkmjkmjk
   host: localhost
 
 test:

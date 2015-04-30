@@ -45,5 +45,8 @@
   <%= @evaluation.question5 %>
 </p>
 
-<%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |
-<%= link_to 'Back', evaluations_path %>
+
+<% if !current_member.teacher %>
+    <td><%= link_to 'Edit', edit_evaluation_path(@evaluation), class: 'button secondary radius small' %></td>
+<% end %>
+

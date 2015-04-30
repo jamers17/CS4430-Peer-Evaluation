@@ -17,7 +17,7 @@
       <th>Question3</th>
       <th>Question4</th>
       <th>Question5</th>
-      <th colspan="3"></th>
+      <th colspan="3">Admin</th>
     </tr>
   </thead>
 
@@ -51,9 +51,10 @@
         <td><%= evaluation.question3 %></td>
         <td><%= evaluation.question4 %></td>
         <td><%= evaluation.question5 %></td>
-        <td><%= link_to 'Show', evaluation %></td>
         <td><%= link_to 'Edit', edit_evaluation_path(evaluation) %></td>
-        <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_member.teacher %>
+            <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   <% end %>  
