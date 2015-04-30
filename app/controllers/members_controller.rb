@@ -63,6 +63,11 @@ class MembersController < ApplicationController
     end
   end
 
+  def import
+    Member.import(params[:file])
+    redirect_to member_index_url, notice: "Members imported."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member

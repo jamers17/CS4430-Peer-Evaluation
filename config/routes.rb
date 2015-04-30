@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :evaluations
 
   resources :teams
+  
+  resources :members do
+    collection { post :import }
+  end
 
   get 'student/index'
 

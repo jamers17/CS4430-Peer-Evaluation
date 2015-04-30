@@ -32,3 +32,11 @@
 <% if !current_member.teacher? %>
     <%= link_to 'New Member', new_member_path %>
 <% end %>
+
+<div>
+<h2>Import a CSV File</h2>
+  <%=form_tag import_products_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
